@@ -7,10 +7,22 @@ defmodule RexTest do
     assert Rex.mean([20,30,40,50]) == 35
   end
 
+  test "the mean with ranges" do
+    assert Rex.mean(1..100) == 50.5
+    assert Rex.mean(100..200) == 150
+    assert Rex.mean(-20..20) == 0
+  end
+
   test "the median" do
     assert Rex.median([1,2,3,4,5,6,7]) == 4
     assert Rex.median([5,5,5,5,5]) == 5
     assert Rex.median([10,20,40,80,160,200]) == 60
+  end
+
+  test "the median with ranges" do
+    assert Rex.median(1..101) == 51
+    assert Rex.median(1..100) == 50.5
+    assert Rex.median(-90..120) == 15
   end
 
 end
