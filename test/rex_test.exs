@@ -9,5 +9,8 @@ defmodule RexTest do
 
   test "the median" do
     assert Rex.median([1,2,3,4,5,6,7]) == 4
+    assert Rex.median([5,5,5,5,5]) == 5
+    assert Rex.median([10,20,40,80,160,200]) == 60
   end
+
 end
