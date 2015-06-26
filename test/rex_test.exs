@@ -25,4 +25,10 @@ defmodule RexTest do
     assert Rex.median(-90..120) == 15
   end
 
+  test "the mode" do
+    assert Rex.mode([1,2,3,1,2,1,1]) == [1]
+    assert Rex.mode([1,2,3,1,2,1,1,2,2]) == [2, 1]
+    assert Rex.mode([50]) == [50]
+  end
+
 end

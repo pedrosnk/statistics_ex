@@ -23,4 +23,50 @@ defmodule Rex do
       Enum.at list, div(Enum.count(list), 2)
     end
   end
+
+  @doc """
+  Calculates the mode of a list
+  """
+  def mode list do
+    counter = count_values list, %{}
+    sorted_counts = Enum.sort counter, &sort_counter/2
+    extract_mode_values sorted_counts
+  end
+
+  defp count_values [h | t], counter do
+    if counter[h] == nil do
+      counter = Map.put counter, h, 1
+    else
+      counter = Map.put counter, h, counter[h] + 1
+    end
+    count_values t, counter
+  end
+
+  defp count_values [], counter do
+    counter
+  end
+
+  defp sort_counter value1, value2 do
+    {_,count1} = value1
+    {_,count2} = value2
+    count1 > count2
+  end
+
+  def extract_mode_values [h | t] do
+    {value, count} = h
+    extract_mode_values t, count, [value]
+  end
+
+  defp extract_mode_values [h | t], max_count, acc do
+    {value, count} = h
+    if count != max_count do
+      extract_mode_values [], max_count, acc
+    else
+      extract_mode_values t, max_count, acc ++ [value]
+    end
+  end
+
+  defp extract_mode_values [], _max_count, acc do
+    acc
+  end
 end
