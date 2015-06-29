@@ -33,6 +33,13 @@ defmodule Rex do
     extract_mode_values sorted_counts
   end
 
+  @doc """
+  Calculates the 2nd 
+  """
+  def quartile_2 list do
+    median list
+  end
+
   defp count_values [h | t], counter do
     if counter[h] == nil do
       counter = Map.put counter, h, 1

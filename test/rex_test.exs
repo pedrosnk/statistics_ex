@@ -31,4 +31,8 @@ defmodule RexTest do
     assert Rex.mode([50]) == [50]
   end
 
+  test "the quartile 2" do
+    assert Rex.quartile_2([10,11,12,13,14,15]) == 12.5
+  end
+
 end
