@@ -40,6 +40,16 @@ defmodule Rex do
     median list
   end
 
+  @doc """
+  Calculates the 1st quartile
+  """
+  def quartile_1 list do
+    list = Enum.sort list
+    count = Enum.count list
+    first_half = Enum.slice list, 0..(div(count,2) - 1)
+    median first_half
+  end
+
   defp count_values [h | t], counter do
     if counter[h] == nil do
       counter = Map.put counter, h, 1
