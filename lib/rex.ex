@@ -34,13 +34,6 @@ defmodule Rex do
   end
 
   @doc """
-  Calculates the 2nd 
-  """
-  def quartile_2 list do
-    median list
-  end
-
-  @doc """
   Calculates the 1st quartile
   """
   def quartile_1 list do
@@ -48,6 +41,23 @@ defmodule Rex do
     count = Enum.count list
     first_half = Enum.slice list, 0..(div(count,2) - 1)
     median first_half
+  end
+
+  @doc """
+  Calculates the 2nd quartile
+  """
+  def quartile_2 list do
+    median list
+  end
+
+  @doc """
+  Calculates the 3rd quartile
+  """
+  def quartile_3 list do
+    list = Enum.sort list
+    count = Enum.count list
+    last_half = Enum.slice list, (div(count, 2))..count
+    median last_half
   end
 
   defp count_values [h | t], counter do

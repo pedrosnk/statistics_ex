@@ -40,4 +40,8 @@ defmodule RexTest do
     assert Rex.quartile_2([10,11,12,13,14,15]) == 12.5
   end
 
+  test "the quartile 3" do
+    assert Rex.quartile_3([10,11,12,13,14,15]) == 14
+  end
+
 end
