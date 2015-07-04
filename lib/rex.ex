@@ -19,7 +19,7 @@ defmodule Rex do
     if rem(Enum.count(list), 2) == 0 do
       first_idx = div Enum.count(list), 2
       (Enum.at(list, first_idx - 1) + Enum.at(list, first_idx)) / 2
-    else 
+    else
       Enum.at list, div(Enum.count(list), 2)
     end
   end
@@ -56,7 +56,12 @@ defmodule Rex do
   def quartile_3 list do
     list = Enum.sort list
     count = Enum.count list
-    last_half = Enum.slice list, (div(count, 2))..count
+    last_half =
+      if rem(count, 2) == 0 do
+        Enum.slice list, (div(count, 2))..count
+      else
+        Enum.slice list, (div(count, 2) + 1)..count
+      end
     median last_half
   end
 
