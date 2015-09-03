@@ -4,7 +4,15 @@ defmodule Rex do
   """
 
   @doc """
-  Calculates the mean passing a list
+  Calculates the mean passing a list or a range
+
+  Example:
+
+    iex> Rex.mean [1,2,3,4,5,6,7,8,9,10]
+    5.5
+
+    iex> Rex.mean 100..200
+    150.0
   """
   def mean list do
     sum = Enum.sum list

@@ -1,5 +1,6 @@
 defmodule RexTest do
   use ExUnit.Case
+  doctest Rex
 
   test "the mean" do
     assert Rex.mean([1,2,3,4,5,6,7,8,9,10]) == 5.5
