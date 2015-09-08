@@ -21,6 +21,13 @@ defmodule Rex do
 
   @doc """
   Calculates the median passing a list
+
+  Example: 
+    iex> Rex.median [1,2,3,4,5,6,7]
+    4
+
+    iex> Rex.median 1..101
+    51
   """
   def median list do
     list = Enum.sort list
