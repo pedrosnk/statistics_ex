@@ -22,7 +22,7 @@ defmodule Rex do
   @doc """
   Calculates the median passing a list
 
-  Example: 
+  Example:
     iex> Rex.median [1,2,3,4,5,6,7]
     4
 
