@@ -20,6 +20,18 @@ defmodule Rex do
   end
 
   @doc """
+  Calculates the Weighted mean between two lists or ranges
+  """
+  def weighted_mean list1, list2 do
+    mean1 = mean list1
+    mean2 = mean list2
+    count1 = Enum.count(list1)
+    count2 = Enum.count(list2)
+
+    ((mean1 * count1) + (mean2 * count2)) / (count1 + count2)
+  end
+
+  @doc """
   Calculates the median passing a list
 
   Example:

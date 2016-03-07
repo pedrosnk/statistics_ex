@@ -46,4 +46,8 @@ defmodule RexTest do
     assert Rex.quartile_3([22,23,24,25,26]) == 25.5
   end
 
+  test "the weighted mean between two samples" do
+    assert Rex.weighted_mean([5,4,2,9,3], [1,3,2,5,8]) == 4.2
+  end
+
 end
