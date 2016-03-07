@@ -52,7 +52,14 @@ defmodule Rex do
   end
 
   @doc """
-  Calculates the mode of a list
+  Calculates the mode of a list, which is the most frequently value
+
+  Example:
+    iex> Rex.mode [1,2,3,3,3,7,5]
+    [3]
+
+    iex> Rex.mode [1,1,1,1,2,8,10]
+    [1]
   """
   def mode list do
     counter = count_values list, %{}
