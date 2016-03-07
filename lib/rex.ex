@@ -68,6 +68,34 @@ defmodule Rex do
   end
 
   @doc """
+  Calculates the variance of a list
+
+  """
+  def variance list do
+    list_count = Enum.count list
+    list_mean = mean list
+
+    deviation_score = list
+      |> Enum.map(&(&1 - list_mean))
+      |> Enum.sum()
+
+    if deviation_score == 0 do
+      deviation_score = list
+        |> Enum.map(&(:math.pow(&1 - list_mean, 2)))
+        |> Enum.sum()
+    end
+
+    deviation_score / list_count
+  end
+
+  @doc """
+  Calculates the standart deviantion of a list
+  """
+  def standart_deviation list do
+    list |> variance() |> :math.sqrt()
+  end
+
+  @doc """
   Calculates the 1st quartile
   """
   def quartile_1 list do

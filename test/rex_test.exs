@@ -50,4 +50,12 @@ defmodule RexTest do
     assert Rex.weighted_mean([5,4,2,9,3], [1,3,2,5,8]) == 4.2
   end
 
+  test "the standart deviation" do
+    assert Rex.standart_deviation([14, 9, 11, 7, 9]) == 2.3664319132398464
+  end
+
+  test "the variance" do
+    assert Rex.variance([14, 9, 11, 7, 9]) == 5.6
+  end
+
 end
