@@ -58,4 +58,11 @@ defmodule RexTest do
     assert Rex.variance([14, 9, 11, 7, 9]) == 5.6
   end
 
+  test "the z score" do
+    example = [1, 2, 5, 10]
+    mean = Rex.mean example
+    sd = Rex.standart_deviation example
+    Rex.simple_z_score(1, standart_deviation: sd, mean: mean) == -1.0
+  end
+
 end

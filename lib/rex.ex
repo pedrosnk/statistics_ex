@@ -127,6 +127,10 @@ defmodule Rex do
     median last_half
   end
 
+  def simple_z_score x, [standart_deviation: sd, mean: mean] do
+    (x - mean) / sd
+  end
+
   defp count_values [h | t], counter do
     if counter[h] == nil do
       counter = Map.put counter, h, 1
