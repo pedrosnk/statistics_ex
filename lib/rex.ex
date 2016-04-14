@@ -132,11 +132,11 @@ defmodule Rex do
   end
 
   defp count_values [h | t], counter do
-    if counter[h] == nil do
-      counter = Map.put counter, h, 1
-    else
-      counter = Map.put counter, h, counter[h] + 1
-    end
+    counter =
+      case counter[h] do
+        nil -> Map.put counter, h, 1
+        _ -> Map.put counter, h, counter[h] + 1
+      end
     count_values t, counter
   end
 
