@@ -79,10 +79,13 @@ defmodule Rex do
       |> Enum.map(&(&1 - list_mean))
       |> Enum.sum()
 
-    if deviation_score == 0 do
-      deviation_score = list
-        |> Enum.map(&(:math.pow(&1 - list_mean, 2)))
-        |> Enum.sum()
+    deviation_score = case deviation_score do
+      0.0 ->
+        list
+          |> Enum.map(&(:math.pow(&1 - list_mean, 2)))
+          |> Enum.sum()
+      _ ->
+        deviation_score
     end
 
     deviation_score / list_count
