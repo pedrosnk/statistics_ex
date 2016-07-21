@@ -62,7 +62,7 @@ defmodule RexTest do
     example = [1, 2, 5, 10]
     mean = Rex.mean example
     sd = Rex.standart_deviation example
-    Rex.simple_z_score(1, standart_deviation: sd, mean: mean) == -1.0
+    assert Rex.simple_z_score(1, standart_deviation: sd, mean: mean) == -1.0
   end
 
 end
