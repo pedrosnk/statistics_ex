@@ -130,6 +130,10 @@ defmodule Rex do
     median last_half
   end
 
+  def sumary _list do
+    # TODO
+  end
+
   def simple_z_score x, [standart_deviation: sd, mean: mean] do
     (x - mean) / sd
   end
